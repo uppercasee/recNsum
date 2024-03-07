@@ -4,17 +4,17 @@ import numpy as np
 import pickle
 
 # Load embeddings
-itememb = torch.load('./embeddings/item_embeddings.pt')
-useremb = torch.load('./embeddings/user_embeddings.pt')
+itememb = torch.load("./embeddings/item_embeddings.pt")
+useremb = torch.load("./embeddings/user_embeddings.pt")
 print(itememb.shape, useremb.shape)
 
 # read user2ind
-with open('./embeddings/user2ind.pkl', 'rb') as f:
+with open("./embeddings/user2ind.pkl", "rb") as f:
     user2ind = pickle.load(f)
     print("user2ind loaded successfully.")
 
 # read item2ind
-with open('./embeddings/item2ind.pkl', 'rb') as f:
+with open("./embeddings/item2ind.pkl", "rb") as f:
     item2ind = pickle.load(f)
     print("item2ind loaded successfully.")
 
@@ -33,17 +33,23 @@ print("final data loaded successfully.")
 # most_similar_articles = news_train.iloc[most_sim_indices]
 # print(most_similar_articles.head())
 
-def get_most_similar_articles(item_id, item_embeddings=itememb, news_data=news_train, top_n=5):
+
+def get_most_similar_articles(
+    item_id, item_embeddings=itememb, news_data=news_train, top_n=5
+):
     ind = user2ind.get(item_id)
     if not ind:
         print("user not found")
         ind = np.random.randint(1, 51)
     itememb_cpu = item_embeddings.cpu()
-    similarity = torch.nn.functional.cosine_similarity(itememb_cpu[ind], itememb_cpu, dim=-1)
+    similarity = torch.nn.functional.cosine_similarity(
+        itememb_cpu[ind], itememb_cpu, dim=-1
+    )
     similarity_np = similarity.detach().numpy()
     most_sim_indices = similarity_np.argsort()[-top_n:][::-1]
     most_similar_articles = news_data.iloc[most_sim_indices]
     return most_similar_articles
+
 
 # userid = "U1374000"
 # most_similar_articles = get_most_similar_articles(userid)
@@ -153,4 +159,3 @@ def get_most_similar_articles(item_id, item_embeddings=itememb, news_data=news_t
 # user_id = "U13740"  # User ID for which you want to recommend news
 # recommended_news = recommend_news_for_user(user_id, useremb, raw_behaviour, news_train, top_n=5)
 # print(recommended_news)
-
