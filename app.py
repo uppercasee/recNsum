@@ -1,6 +1,6 @@
 #!./minor/bin/python
 
-from flask import Flask, jsonify, render_template, request
+from flask import Flask, jsonify, render_template, request, send_from_directory
 from transformer import summarize
 from recsystem import get_most_similar_articles
 
@@ -9,8 +9,8 @@ app = Flask(__name__)
 
 @app.route("/")
 def index():
-    return render_template("index.html")
-
+    # return send_from_directory('static', 'index.html')
+    return render_template('index.html')
 
 @app.route("/recommend", methods=["GET", "POST"])
 def get_recommendations():
