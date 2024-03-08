@@ -14,25 +14,29 @@
             News Recommendation and Summary Generator
         </h1>
     </nav>
-    <div class="summary">
-        <h2>Summary Generator</h2>
-        <form id="summaryForm">
-            <label for="summaryInput">Enter Text to summarize</label>
-            <input type="text" id="summaryInput" name="summary">
-            <button type="submit">Get Summary</button>
-        </form>
-        <div id="summary"></div>
+    <div class="container">
+      <div class="summary">
+          <h2>Summary Generator</h2>
+          <form id="summaryForm">
+              <textarea type="text" id="summaryInput" name="summary"></textarea>
+              <!-- <label for="summaryInput">Enter Text to summarize</label> -->
+              <button type="submit" class="pulse">Get Summary</button>
+          </form>
+          <div id="summary"></div>
+      </div>
+      <div class="recommendation">
+          <h2>News Recommendation</h2>
+          <form id="recommendationForm">
+            <div class="user-box">
+              <input type="text" id="userId" name="useridrecc">
+              <label for="userId">Enter userID:</label>
+              <button type="submit" class="pulse">Get Recommendations</button>
+            </div>
+          </form>
+          <div id="recommendation"></div>
+      </div>
     </div>
-    <div class="recommendation">
-        <h2>News Recommendation</h2>
-        <form id="recommendationForm">
-            <label for="userId">Enter userID:</label>
-            <input type="text" id="userId" name="useridrecc">
-            <button type="submit">Get Recommendations</button>
-        </form>
-        <div id="recommendation"></div>
-    </div>
-
+    
   <script src="{{ url_for('static', filename='main.js') }}"></script>
 </body>
 </html>

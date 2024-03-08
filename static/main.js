@@ -26,7 +26,7 @@ form.addEventListener('submit', (e) => {
 
 recform.addEventListener('submit', (e) => {
     e.preventDefault();
-    console.log(userId.value);
+    // console.log(userId.value);
     fetch('/recommend', {
         method: 'POST',
         headers: {
@@ -36,9 +36,10 @@ recform.addEventListener('submit', (e) => {
     })
         .then(response => response.json())
         .then(data=> {
-            console.log(data)
+            userId.value = ''
+            // console.log(data)
             const parsedData = JSON.parse(data.recommendations);
-            console.log(parsedData)
+            // console.log(parsedData)
             recommendation.innerHTML = '';
             parsedData.forEach(item => {
                 const div = document.createElement('div');

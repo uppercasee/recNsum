@@ -1,0 +1,123 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+/* body{ */
+/*   background: #141e30; */
+/* } */
+
+nav {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    padding: 1rem 2rem;
+    width: 100%;
+    background-color: #f2f2f2;  /*#0a5701*/
+    /* position: fixed; */
+    top: 0;
+    text-align: center;
+    flex-flow: row nowrap;
+}
+
+.container {
+  display: flex;
+  flex-direction: row-reverse;
+  padding: 0px 25px;
+}
+
+.summary {
+  width: 50%;
+  /* display: flex; */
+}
+.summary textarea {
+  height: 220px;
+  width: 100%;
+}
+.recommendation {
+  /* position: absolute; */
+  width: 50%;
+}
+
+/* .recommendationForm{ */
+/*   width: 50%; */
+/* } */
+
+.recommendation-item {
+  padding: 20px;
+  /* padding-right: 20px; */
+  border: 1px solid #ccc;
+  margin-right: 20px;
+  /* padding: 10px; */
+  margin-bottom: 20px;
+}
+
+.recommendation-item-id {
+  font-weight: bold;
+  color: #333;
+}
+
+.recommendation-item-title {
+  font-size: 1.2em;
+  margin-top: 5px;
+  margin-bottom: 10px;
+}
+
+.recommendation-item-abstract {
+  color: #666;
+}
+
+button {
+  /* color: var(--color); */
+  /* color: #03e9f4; */
+  color: #01bac3;
+  /* color: #ef6eae; */
+  transition: 0.25s;
+  background: none;
+  border: 2px solid;
+  font: inherit;
+  line-height: 1;
+  margin: 0.5em;
+  padding: 1em 2em;
+}
+
+
+#recommendationForm{
+  position: relative;
+}
+
+#recommendationForm input {
+  width: 90%;
+  /* margin-top: 10px; */
+  padding: 10px 5px;
+  font-size: 16px;
+  color: black;
+  /* margin-bottom: 30px; */
+  border: none;
+  border-bottom: 1px solid black;
+  outline: none;
+  background: transparent;
+}
+
+#recommendationForm label {
+  position: absolute;
+  top:0;
+  left: 0;
+  padding: 10px 0;
+  font-size: 18px;
+  color: black;
+  pointer-events: none;
+  transition: .5s;
+}
+
+#recommendationForm input:focus ~ label{
+  top: -20px;
+  left: 0;
+  color: #03e9f4;
+  font-size: 18px;
+}
+
