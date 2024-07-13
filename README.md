@@ -2,6 +2,10 @@
 
 This is a Flask project that implements a news recommendation system and a text summarization feature using Neural Collaborative Filtering and Transformer Model.
 
+## Screenshots
+
+![Screenshot](./assets/image.png)
+
 ## Installation
 
 1. Clone the repository:
